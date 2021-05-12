@@ -86,8 +86,6 @@ const main = async () => {
     country_of_origin: "Japan",
     website_link: "https://www.honda.com/",
   });
-
-
   carBrand11.save();
 
 
@@ -156,22 +154,34 @@ const main = async () => {
         "https://cache.miniusa.com/cosy.arox?pov=walkaround&brand=WBMI&vehicle=22MH&client=NVCO&paint=P0B71&fabric=FK9E1&sa=S02EU&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23EFEFEF&width=700",
       car_brand: carBrand4._id,
     },
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
+    {
+      model_name: "Dodge Challenger Hellcat Redeye",
+      type_of_car: "Sedan",
+      car_image:
+        "https://www.motortrend.com/uploads/sites/5/2020/07/2021-Dodge-Charger-SRT-Redeye-2.jpg?fit=around%7C1000:625",
+      car_brand: carBrand5._id,
+    },
+    {
+      model_name: "Dodge Durango",
+      type_of_car: "SUV",
+      car_image:
+        "https://www.dodge.com/content/dam/fca-brands/na/dodge/en_us/2021/durango/gallery/exterior/2021-durango-gallery-exterior6.jpg.image.1440.jpg",
+      car_brand: carBrand5._id,
+    },
+    {
+      model_name: "Chevrolet Trailblazer",
+      type_of_car: "SUV",
+      car_image:
+        "https://www.chevrolet.com/bypass/iframes/gm/chevrolet/2021/trailblazer/colorizer/images/colorizer/trim/activ/ext/2021-trailblazer-colorizer-activ-g5j-gaz-01.jpg",
+      car_brand: carBrand6._id,
+    },
+    {
+      model_name: "Chevrolet Malibu",
+      type_of_car: "Midsize Sedan",
+      car_image:
+        "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2021/cars/malibu/colorizer/01-images/2021-malibu-1zs69-gsk-colorizer.jpg?imwidth=600",
+      car_brand: carBrand6._id,
+    },
     {
       model_name: "Volkswagen Tiguan",
       type_of_car: "Mid-Size Sporty SUV",
@@ -228,12 +238,31 @@ const main = async () => {
         "https://s7d1.scene7.com/is/image/hyundai/2021-sonata-ltd-stormy-sea-019:Browse?fmt=png-alpha",
       car_brand: carBrand10._id,
     },
-    { title: 'Accord', type_of_car: 'Sedan', car_image: 'https://cars.usnews.com/static/images/Auto/izmo/i159163880/2020_honda_accord_angularfront.jpg', car_brand: carBrand11._id },
-    { title: 'CR-V', type_of_car: 'SUV', car_image: 'https://cars.usnews.com/static/images/Auto/izmo/i159163880/2020_honda_accord_angularfront.jpg', car_brand: carBrand11._id },
+    {
+      model_name: 'Accord', type_of_car: 'Sedan',
+      car_image: 'https://cars.usnews.com/static/images/Auto/izmo/i159163880/2020_honda_accord_angularfront.jpg',
+      car_brand: carBrand11._id
+    },
+    {
+      model_name: 'CR-V',
+      type_of_car: 'SUV',
+      car_image: 'https://cars.usnews.com/static/images/Auto/izmo/i159163880/2020_honda_accord_angularfront.jpg',
+      car_brand: carBrand11._id
+    },
 
 
-    { title: 'Mazda CX-5', type_of_car: 'SUV', car_image: 'https://www.mazdausa.com/syssiteassets/vehicles/2021/cx-5/trims/sport/2021-mazda-cx-5-sport-package.jpg?w=320', car_brand: carbrand12._id },
-    { title: 'Mazda3', type_of_car: 'Sedan', car_image: 'https://cars.usnews.com/static/images/Auto/izmo/i158929145/2020_mazda_mazda_3_angularfront.jpg', car_brand: carBrand12._id },
+    {
+      model_name: 'Mazda CX-5',
+      type_of_car: 'SUV',
+      car_image: 'https://www.mazdausa.com/syssiteassets/vehicles/2021/cx-5/trims/sport/2021-mazda-cx-5-sport-package.jpg?w=320',
+      car_brand: carBrand12._id
+    },
+    {
+      model_name: 'Mazda3',
+      type_of_car: 'Sedan',
+      car_image: 'https://cars.usnews.com/static/images/Auto/izmo/i158929145/2020_mazda_mazda_3_angularfront.jpg',
+      car_brand: carBrand12._id
+    },
    
   ]
 
@@ -242,3 +271,11 @@ const main = async () => {
   console.log("Created many cars");
 
 }
+
+
+const run = async () => {
+  await main();
+  db.close();
+}
+
+run();
