@@ -42,7 +42,7 @@ const getBrandById = async (req, res) => {
 const updateBrand = async (req, res) => {
   try {
     const { id } = req.params;
-    await CarBrand.findByAndUpdate(
+    await CarBrand.findByIdAndUpdate(
       id,
       req.body,
       { new: true },
@@ -81,7 +81,7 @@ const createCar = async (req, res) => {
   try {
     const car = await new CarModel(req.body);
     await car.save();
-    return res.status(201).json({ CaretPosition });
+    return res.status(201).json({ car });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
@@ -115,7 +115,7 @@ const getCarById = async (req, res) => {
 const updateCar = async (req, res) => {
   try {
     const { id } = req.params;
-    await CarModel.findByAndUpdate(
+    await CarModel.findByIdAndUpdate(
       id,
       req.body,
       { new: true },
