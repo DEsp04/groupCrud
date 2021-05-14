@@ -6,7 +6,7 @@ const CarModel = new Schema(
     model_name: { type: String, required: true },
     type_of_car: { type: String, required: true },
     car_image: { type: String, required: true },
-    car_brand: {type: Schema.Types.ObjectId, ref: 'brands'}
+    car_brand: {type: Schema.Types.ObjectId, ref: 'car_brand'}
   },
   { timestamps: true },
 

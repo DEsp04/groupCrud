@@ -1,9 +1,5 @@
 const CarBrand = require("../models/carBrand");
 const CarModel = require("../models/carModel");
-
-
-//requests for brand
-
 const createBrand = async (req, res) => {
   try {
     const brand = await new CarBrand(req.body);
@@ -12,33 +8,27 @@ const createBrand = async (req, res) => {
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
-}
-
-
+};
 const getAllBrands = async (req, res) => {
   try {
     const brands = await CarBrand.find();
     return res.status(200).json({ brands });
   } catch (error) {
-    return res.status(500).send({ error: error.message });
+    return res.status(500).send(eror.message);
   }
 };
-
-
-const getBrandById = async (req, res) => {
+const getBrandByID = async (req, res) => {
   try {
     const { id } = req.params;
     const brand = await CarBrand.findById(id);
     if (brand) {
-      return res.status(200).json({ brand });  
+      return res.status(200).json({ brand });
     }
-    return res.status(404).send("brand not found");
+    return res.status(404).send("Brand not found 🛑");
   } catch (error) {
     return res.status(500).send(error.message);
   }
-}
-
-
+};
 const updateBrand = async (req, res) => {
   try {
     const { id } = req.params;
@@ -48,10 +38,10 @@ const updateBrand = async (req, res) => {
       { new: true },
       (err, brand) => {
         if (err) {
-          res.status(500).send(err)
+          res.status(500).send(err);
         }
         if (!brand) {
-          res.status(500).send("brand not found")
+          res.status(500).send("Brand not found 🛑");
         }
         return res.status(200).json(brand);
       }
@@ -60,23 +50,18 @@ const updateBrand = async (req, res) => {
     return res.status(500).send(error.message);
   }
 };
-
-
 const deleteBrand = async (req, res) => {
   try {
     const { id } = req.params;
     const deleted = await CarBrand.findByIdAndDelete(id);
     if (deleted) {
-      return res.status(200).send("brand deleted");
+      return res.status(200).send("Brand deleted 👨🏽‍🔧");
     }
-    throw new Error("brand not found");
+    throw new Error("Brand not found 🛑");
   } catch (error) {
     return res.status(500).send(error.message);
   }
 };
-
-//request for carmodels
-
 const createCar = async (req, res) => {
   try {
     const car = await new CarModel(req.body);
@@ -85,33 +70,27 @@ const createCar = async (req, res) => {
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
-}
-
-
+};
 const getAllCars = async (req, res) => {
   try {
     const cars = await CarModel.find();
     return res.status(200).json({ cars });
   } catch (error) {
-    return res.status(500).send({ error: error.message });
+    return res.status(500).send(eror.message);
   }
 };
-
-
-const getCarById = async (req, res) => {
+const getCarByID = async (req, res) => {
   try {
     const { id } = req.params;
     const car = await CarModel.findById(id);
     if (car) {
-      return res.status(200).json({ car });  
+      return res.status(200).json({ car });
     }
-    return res.status(404).send("car not found");
+    return res.status(404).send("Car not found 🛑");
   } catch (error) {
     return res.status(500).send(error.message);
   }
-}
-
-
+};
 const updateCar = async (req, res) => {
   try {
     const { id } = req.params;
@@ -121,10 +100,10 @@ const updateCar = async (req, res) => {
       { new: true },
       (err, car) => {
         if (err) {
-          res.status(500).send(err)
+          res.status(500).send(err);
         }
         if (!car) {
-          res.status(500).send("car not found")
+          res.status(500).send("Car not found 🛑");
         }
         return res.status(200).json(car);
       }
@@ -133,32 +112,27 @@ const updateCar = async (req, res) => {
     return res.status(500).send(error.message);
   }
 };
-
-
 const deleteCar = async (req, res) => {
   try {
     const { id } = req.params;
     const deleted = await CarModel.findByIdAndDelete(id);
     if (deleted) {
-      return res.status(200).send("car deleted");
+      return res.status(200).send("Car deleted 👨🏽‍🔧");
     }
-    throw new Error("car not found");
+    throw new Error("Car not found 🛑");
   } catch (error) {
     return res.status(500).send(error.message);
   }
 };
-
-
-
 module.exports = {
   createBrand,
   getAllBrands,
-  getBrandById,
+  getBrandByID,
   updateBrand,
   deleteBrand,
   createCar,
   getAllCars,
-  getCarById,
+  getCarByID,
   updateCar,
   deleteCar,
 };
