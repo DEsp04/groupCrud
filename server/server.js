@@ -12,11 +12,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(cors());
-
+db.on("error", console.error.bind(console, "MongoDB connection error."));
 app.use(logger("dev"));
 app.use("/api", routes);
 
-db.on("error", console.error.bind(console, "MongoDB connection error."));
+
 
 app.listen(PORT, () => console.log("Listening on Port " + PORT));
 
