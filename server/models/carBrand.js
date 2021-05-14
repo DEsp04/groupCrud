@@ -14,4 +14,4 @@ const CarBrand = new Schema(
   {timestamps: true},
 )
 
-module.exports = mongoose.model('car_brand', CarBrand)
+module.exports = mongoose.model('car_brands', CarBrand)
