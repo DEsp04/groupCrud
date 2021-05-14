@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-let MONGODB_URI = process.env.PROD_MONGODB || process.MONGODB || "mongodb://127.0.0.1:27017/carDatabase";
+
+
+let MONGODB_URI = process.env.PROD_MONGODB || process.MONGODB || process.env.DB_Cluster_Password;
 
 mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true }).then(() => {
 	console.log("Successfully connected to MongoDB.");
